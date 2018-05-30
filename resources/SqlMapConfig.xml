@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <!--设置基础扫描包 在此目录下的类都不用书写全路径-->
+        <package name="com.afeng.mybatis.pojo"/>
+    </typeAliases>
+    <mappers>
+
+        <mapper resource="sqlMap/User.xml"/>
+    </mappers>
+</configuration>

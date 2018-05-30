@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace必须要写 不然无法继续进行下面代码的书写-->
+<mapper namespace="com.afeng.mybatis.mapper.UserMapper">
+    <!--根据id查询用户-->
+    <select id="findUserById" parameterType="int" resultType="User">
+        select * from user
+        where id = #{id}
+    </select>
+    <!--保存用户-->
+    <insert id="saveUser" parameterType="User" >
+        <selectKey keyProperty="id" keyColumn="id" order="AFTER" resultType="int">
+            select LAST_INSERT_ID()
+        </selectKey>
+        insert into user(username,sex,birthday,address)
+        values(#{username}, #{sex}, #{birthday}, #{address})
+    </insert>
+
+</mapper>
